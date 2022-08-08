@@ -1,4 +1,6 @@
 class UrbanNews::Scraper
+    
+
 
 
 end
