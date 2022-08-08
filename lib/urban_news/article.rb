@@ -1,0 +1,4 @@
+class UrbanNews::Article
+
+
+end
