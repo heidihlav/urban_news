@@ -5,7 +5,7 @@ require 'open-uri'
 require 'pry'
 
 module UrbanNews
-    class article
+    class Article
 
         attr_accessor :title, :description, :metadata 
 
