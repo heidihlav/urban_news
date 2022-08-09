@@ -31,6 +31,11 @@ module UrbanNews
       puts doc.css(".item-content")[0..3].text
     end
 
+    def self.article_meta_data
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+      puts doc.css(".item-meta-content").text
+    end
+
 
     
 
@@ -43,4 +48,6 @@ UrbanNews::Scraper.kinder_intro
 UrbanNews::Scraper.all_issues_list_by_index
 UrbanNews::Scraper.latest_stories_heading
 UrbanNews::Scraper.article_teaser
+UrbanNews::Scraper.article_meta_data
+
 
