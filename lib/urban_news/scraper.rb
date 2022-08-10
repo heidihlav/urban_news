@@ -16,9 +16,6 @@ module UrbanNews
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       issues = doc.css(".view-content .issue").text.split("  
         ")
-      numbered_issues = issues.collect.with_index(0) do |char, i| 
-        puts "#{i} #{char}" unless i == 0
-      end
     end
 
     def self.latest_stories_heading
