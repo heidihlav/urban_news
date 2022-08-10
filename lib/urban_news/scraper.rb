@@ -58,6 +58,8 @@ UrbanNews::Scraper.kinder_intro
 UrbanNews::Scraper.all_issues_list_by_index(self)
 UrbanNews::Scraper.latest_stories_heading
 UrbanNews::Scraper.article_teaser
+UrbanNews::Scraper.article_title
+UrbanNews::Scraper.article_description
 UrbanNews::Scraper.article_meta_data
 
 

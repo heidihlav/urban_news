@@ -18,14 +18,20 @@ module UrbanNews
       end
 
       def self.article_title
-        UrbanNews::Scraper.article_teaser
-        binding.pry
+        UrbanNews::Scraper.article_title
+
+        # binding.pry
       end
 
-    #   - title and description
+      def self.article_description
+        UrbanNews::Scraper.description
+
+        # binding.pry
+      end
            
     #   - metadata
-      def article_meta_data 
+      def self.article_meta_data 
+        UrbanNews::Scraper.article_meta_data
 
                 
       end
