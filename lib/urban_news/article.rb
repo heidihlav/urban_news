@@ -19,8 +19,6 @@ module UrbanNews
 
       def self.article_title
         UrbanNews::Scraper.article_title
-
-        binding.pry
       end
 
       def self.article_description

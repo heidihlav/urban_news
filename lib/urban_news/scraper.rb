@@ -30,9 +30,9 @@ module UrbanNews
 
     def self.article_title
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
-      puts titles = doc.css("h3")
+      titles = doc.css("h3")
         titles.collect do |t|
-          puts t.text
+          puts t.text.split("h3")
         end
     end
 
