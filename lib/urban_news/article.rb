@@ -1,5 +1,7 @@
 # article belongs to issue
 # class UrbanNews::Article
+require_relative "scraper.rb"
+
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
@@ -15,6 +17,11 @@ module UrbanNews
         @metadata = metadata
       end
 
+      def self.article_title
+        UrbanNews::Scraper.article_teaser
+        binding.pry
+      end
+
     #   - title and description
            
     #   - metadata
@@ -28,3 +35,6 @@ module UrbanNews
 
     end
 end
+
+UrbanNews::Article.article_title
+
