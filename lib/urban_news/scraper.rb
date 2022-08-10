@@ -35,6 +35,12 @@ module UrbanNews
         puts t.text
     end
 
+    def self.article_description
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+      puts descriptions = doc.css(".item-description p").text
+    end
+
+
     def self.article_meta_data
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
       puts doc.css(".item-meta-content").text
