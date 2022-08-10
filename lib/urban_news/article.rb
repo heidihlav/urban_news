@@ -7,7 +7,26 @@ require 'pry'
 module UrbanNews
     class Article
 
-        attr_accessor :title, :description, :metadata 
+    attr_accessor :title, :description, :metadata 
+
+      def initialize(title, description, metadata)
+        @title = title
+        @description = description
+        @metadata = metadata
+      end
+
+    #   - title and description
+      def all_issues_list_by_index
+        
+      end
+           
+    #   - metadata
+      def article_meta_data 
+
+                
+      end
+
+
 
 
     end
