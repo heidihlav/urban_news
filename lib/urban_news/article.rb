@@ -16,9 +16,6 @@ module UrbanNews
       end
 
     #   - title and description
-      def all_issues_list_by_index
-        
-      end
            
     #   - metadata
       def article_meta_data 

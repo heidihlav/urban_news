@@ -12,7 +12,7 @@ module UrbanNews
       puts "#{intro[4]}"
     end
 
-    def self.all_issues_list_by_index
+    def self.all_issues_list_by_index(issues)
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       issues = doc.css(".view-content .issue").text.split("  
         ")
