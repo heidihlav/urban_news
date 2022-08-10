@@ -27,10 +27,6 @@ module UrbanNews
     #             puts "#{i} #{char}" unless i == 0
     #           end
         
-      
-    
-  
-
 
 
     end
