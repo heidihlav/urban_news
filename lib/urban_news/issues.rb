@@ -8,11 +8,11 @@ require 'pry'
 module UrbanNews
     class Issues
 
-    attr_accessor :name, :intro 
+    attr_accessor :name, :url 
 
-    def initialize(name, intro)
+    def initialize(name, url)
       @name = name
-      @intro = intro
+      @url = url
     end
 
     def self.print_all_issues

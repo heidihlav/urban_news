@@ -12,6 +12,16 @@ module UrbanNews
       puts "#{intro[4]}"
     end
 
+    def self.issue_page_url
+    doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
+    issues = doc.css('div a[href^="/issue/"]')
+    issues.collect do |i|
+      issue_page_url = i.each do |link|
+        puts "#{link[1]}"
+      end
+      issue_page_url
+    end
+
     def self.all_issues_list_by_index(issues)
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       issues = doc.css(".view-content .issue").text.split("  
