@@ -24,7 +24,7 @@ module UrbanNews
 
     def self.all_issues_list_by_index(issues)
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-      issues = doc.css(".view-content .issue").text.split("  
+      puts issue_names = doc.css(".view-content .issue").text.split("  
         ")
     end
 
@@ -66,6 +66,8 @@ module UrbanNews
 end
 
 UrbanNews::Scraper.kinder_intro
+UrbanNews::Scraper.issue_page_url
+
 UrbanNews::Scraper.all_issues_list_by_index(self)
 UrbanNews::Scraper.latest_stories_heading
 UrbanNews::Scraper.article_teaser

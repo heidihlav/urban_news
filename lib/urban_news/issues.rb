@@ -16,7 +16,11 @@ module UrbanNews
     end
 
     def self.print_all_issues
-      UrbanNews::Scraper.all_issues_list_by_index(self)
+      @name = UrbanNews::Scraper.all_issues_list_by_index(self)
+    end
+
+    def self.all_issue_pages
+      @url = UrbanNews::Scraper.issue_page_url
     end
 
     # def self.user_choose_issue
@@ -33,3 +37,5 @@ module UrbanNews
 end
 
 UrbanNews::Issues.print_all_issues
+UrbanNews::Issues.all_issue_pages
+
