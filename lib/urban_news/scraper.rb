@@ -13,13 +13,14 @@ module UrbanNews
     end
 
     def self.issue_page_url
-    doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
-    issues = doc.css('div a[href^="/issue/"]')
-    issues.collect do |i|
-      issue_page_url = i.each do |link|
+      doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
+        issues = doc.css('div a[href^="/issue/"]')
+      issues.collect do |i|
+        issue_page_url = i.each do |link|
         puts "#{link[1]}"
+        end
+          issue_page_url
       end
-      issue_page_url
     end
 
     def self.all_issues_list_by_index(issues)
@@ -70,7 +71,7 @@ UrbanNews::Scraper.issue_page_url
 
 UrbanNews::Scraper.all_issues_list_by_index(self)
 UrbanNews::Scraper.latest_stories_heading
-UrbanNews::Scraper.article_teaser
+# UrbanNews::Scraper.article_teaser
 UrbanNews::Scraper.article_title
 UrbanNews::Scraper.article_description
 UrbanNews::Scraper.article_meta_data

@@ -18,18 +18,15 @@ module UrbanNews
       end
 
       def self.article_title
-        UrbanNews::Scraper.article_title
+        @title = UrbanNews::Scraper.article_title
       end
 
       def self.article_description
-        UrbanNews::Scraper.description
-
+        @description = UrbanNews::Scraper.article_description
       end
            
       def self.article_meta_data 
-        UrbanNews::Scraper.article_meta_data
-
-                
+        @metadata = UrbanNews::Scraper.article_meta_data
       end
 
 
