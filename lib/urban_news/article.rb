@@ -24,10 +24,8 @@ module UrbanNews
       def self.article_description
         UrbanNews::Scraper.description
 
-        # binding.pry
       end
            
-    #   - metadata
       def self.article_meta_data 
         UrbanNews::Scraper.article_meta_data
 
@@ -41,4 +39,7 @@ module UrbanNews
 end
 
 UrbanNews::Article.article_title
+UrbanNews::Article.article_description
+UrbanNews::Article.article_meta_data 
+
 
