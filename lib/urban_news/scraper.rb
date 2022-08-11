@@ -33,10 +33,10 @@ module UrbanNews
         puts heading = doc.css(".block__title").first.text
     end
 
-    def self.article_teaser
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
-      puts doc.css(".item-content")[0..3].text
-    end
+    # def self.article_teaser
+    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+    #   puts doc.css(".item-content")[0..3].text
+    # end
 
     def self.article_title
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
