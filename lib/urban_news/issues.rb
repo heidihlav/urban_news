@@ -37,12 +37,8 @@ module UrbanNews
       "https://kinder.rice.edu/issue/transportation",
       "https://kinder.rice.edu/issue/urban-disparity",
       "https://kinder.rice.edu/issue/urban-planning"]
-      @url.collect do |u|
-        puts u
-        binding.pry
-      end
     end 
-
+# binding.pry
 
     end
 end
