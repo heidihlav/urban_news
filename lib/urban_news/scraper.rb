@@ -16,9 +16,10 @@ module UrbanNews
       doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
       issues = doc.css('.view-content a[href^="/issue/"]')
       issues.collect do |i|
-        url = i.delete('href')
+        puts url = i.delete('href')
         url
       end
+    end
 
     def self.all_issues_list_by_index(issues)
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))

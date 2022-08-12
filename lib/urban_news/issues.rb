@@ -24,6 +24,7 @@ module UrbanNews
 
     def self.all_issue_pages
       @url = UrbanNews::Scraper.issue_page_url
+      binding.pry
     end 
 
     # def self.user_choose_issue
