@@ -12,7 +12,7 @@ module UrbanNews
 
     def initialize(name, url)
       @name = name
-      @url = url
+      @url = []
     end
 
     def self.print_all_issues
@@ -25,17 +25,35 @@ module UrbanNews
     def self.all_issue_pages
       @url = UrbanNews::Scraper.issue_page_url
       @url.collect.with_index(1) do |char, i|
-        puts "#{i} #{char}" unless i == 0
+         = puts "#{i}" "#{@name}" "https://kinder.rice.edu" + "#{char}" unless i == 0
+        @url << 
       end
     end 
 
-    def self.user_select_an_issue
-      def self.print_all_issues
-        def self.all_issue_pages
+    # def self.user_select_an_issue
+    #   self.print_all_issues
+    #     self.all_issue_pages
+    #     "#{name}" "#{url}" 
+    #     (href="https://kinder.rice.edu/issue/covid-19-and-cities")
+    #     (href="https://kinder.rice.edu/issue/demographics")
+        # <a href="https://kinder.rice.edu/issue/economic-development" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/education" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/elections" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/governance" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/health" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/housing" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/hurricane-harvey" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/immigration" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/sun-belt" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/transportation" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/urban-disparity" target="_self"></a>
+        # <a href="https://kinder.rice.edu/issue/urban-planning" target="_self"></a>
 
 
 
-    end
+
+
+    # end
 
 
     # def self.user_choose_issue

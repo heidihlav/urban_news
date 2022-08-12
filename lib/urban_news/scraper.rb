@@ -29,7 +29,7 @@ module UrbanNews
     end
 
     def self.latest_stories_heading
-        doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+        doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
         puts heading = doc.css(".block__title").first.text
     end
 
@@ -39,7 +39,7 @@ module UrbanNews
     # end
 
     def self.article_title
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       titles = doc.css("h3")
         titles.collect do |t|
           puts t.text.split("h3")
@@ -47,13 +47,13 @@ module UrbanNews
     end
 
     def self.article_description
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       puts descriptions = doc.css(".item-description p").text
     end
 
 
     def self.article_meta_data
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue/covid-19-and-cities"))
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       puts doc.css(".item-meta-content").text
     end
 
