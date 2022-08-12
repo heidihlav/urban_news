@@ -17,20 +17,19 @@ module UrbanNews
 
     def self.print_all_issues
       @name = UrbanNews::Scraper.all_issues_list_by_index(self)
+        @name.collect.with_index(0) do |char, i| 
+          puts "#{i} #{char}" unless i == 0
+        end 
     end
 
     def self.all_issue_pages
       @url = UrbanNews::Scraper.issue_page_url
-    end
+    end 
 
     # def self.user_choose_issue
     #     puts "Which issue do you want to read about?"
     #     number_chosen = gets.strip.to_i
-    #     if number_chosen ==  
-    #         issues.collect.with_index(0) do |char, i| 
-    #             puts "#{i} #{char}" unless i == 0
-    #           end
-        
+        # if number_chosen ==  
 
 
     end
