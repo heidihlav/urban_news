@@ -1,4 +1,8 @@
-class UrbanNews::CLI
+module UrbanNews
+  class CLI
 
 
+
+
+  end
 end

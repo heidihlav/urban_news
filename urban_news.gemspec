@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["hchlav@gmail.com"]
 
   spec.summary = "Urban News is an article aggregator."
-  spec.description = "Urban News finds the latest research articles on urban issues affecting Houston, Texas and the nation."
+  spec.description = "Urban News finds the latest research articles from the Kinder Institute for Urban Issues. on urban issues affecting Houston and the state of Texas."
   spec.homepage = "https://github.com/heidihlav/urban_news.git"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
