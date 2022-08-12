@@ -22,7 +22,7 @@ module UrbanNews
         end 
     end
 
-    def issue_urls
+    def self.issue_urls
      @url = ["https://kinder.rice.edu/issue/covid-19-and-cities",
       "https://kinder.rice.edu/issue/demographics",
       "https://kinder.rice.edu/issue/economic-development",
@@ -37,44 +37,17 @@ module UrbanNews
       "https://kinder.rice.edu/issue/transportation",
       "https://kinder.rice.edu/issue/urban-disparity",
       "https://kinder.rice.edu/issue/urban-planning"]
-    end
-        # puts "#{i}"
-        # .collect do |url|
-        #  puts url 
-      # HTML(URI.open("https://kinder.rice.edu/issue" + "#{self.issue_page_url}" ))
-        # end
-      # end
-
-    # def self.all_issue_pages
-    #   @url = UrbanNews::Scraper.issue_page_url
-    #   @url.collect.with_index(1) do |char, i|
-    #      @url = puts "#{i}" "#{@name}" "https://kinder.rice.edu" + "#{char}" unless i == 0
-    #   end
-    #   @url
-    # end 
-
-    # def self.user_select_an_issue
-    #   self.print_all_issues
-    #     self.all_issue_pages
-    #     "#{name}" "#{url}" 
-    #     
-
-
-
-
-
-
-
-    # def self.user_choose_issue
-    #     puts "Which issue do you want to read about?"
-    #     number_chosen = gets.strip.to_i
-        # if number_chosen ==  
+      @url.collect do |u|
+        puts u
+        binding.pry
+      end
+    end 
 
 
     end
 end
 
 UrbanNews::Issues.print_all_issues
-UrbanNews::Issues.user_select_an_issue
+UrbanNews::Issues.issue_urls
 
 
