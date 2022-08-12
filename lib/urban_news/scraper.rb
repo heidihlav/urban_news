@@ -17,7 +17,7 @@ module UrbanNews
       issues = doc.css('.view-content a[href^="/issue/"]')
       issues.collect do |i|
         puts url = i.delete('href')
-        url
+        # url
       end
     end
 
@@ -26,6 +26,7 @@ module UrbanNews
       puts issues = doc.css(".view-content .issue").text.split("  
         ")
         issues
+        # binding.pry
     end
 
     def self.latest_stories_heading

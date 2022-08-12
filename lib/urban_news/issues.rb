@@ -22,13 +22,20 @@ module UrbanNews
         end 
     end
 
-    def self.all_issue_pages
-      @url = UrbanNews::Scraper.issue_page_url
-      @url.collect.with_index(1) do |char, i|
-         = puts "#{i}" "#{@name}" "https://kinder.rice.edu" + "#{char}" unless i == 0
-        @url << 
-      end
-    end 
+    def self.user_select_an_issue
+      self.print_all_issues.each do |i|
+        HTML(URI.open("https://kinder.rice.edu/issues"))
+      
+
+    end
+
+    # def self.all_issue_pages
+    #   @url = UrbanNews::Scraper.issue_page_url
+    #   @url.collect.with_index(1) do |char, i|
+    #      @url = puts "#{i}" "#{@name}" "https://kinder.rice.edu" + "#{char}" unless i == 0
+    #   end
+    #   @url
+    # end 
 
     # def self.user_select_an_issue
     #   self.print_all_issues
@@ -66,5 +73,6 @@ module UrbanNews
 end
 
 UrbanNews::Issues.print_all_issues
-UrbanNews::Issues.all_issue_pages
+UrbanNews::Issues.user_select_an_issue
+
 
