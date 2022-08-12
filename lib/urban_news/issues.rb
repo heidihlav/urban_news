@@ -24,8 +24,19 @@ module UrbanNews
 
     def self.all_issue_pages
       @url = UrbanNews::Scraper.issue_page_url
-      binding.pry
+      @url.collect.with_index(1) do |char, i|
+        puts "#{i} #{char}" unless i == 0
+      end
     end 
+
+    def self.user_select_an_issue
+      def self.print_all_issues
+        def self.all_issue_pages
+
+
+
+    end
+
 
     # def self.user_choose_issue
     #     puts "Which issue do you want to read about?"
