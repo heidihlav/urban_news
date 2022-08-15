@@ -28,10 +28,7 @@ module UrbanNews
       def self.article_meta_data 
         @metadata = UrbanNews::Scraper.article_meta_data
       end
-
-
-
-
+      
     end
 end
 

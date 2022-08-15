@@ -13,28 +13,22 @@ module UrbanNews
       puts UrbanNews::Scraper.kinder_intro
       @input = ""
       until @input == "exit"
-        
-        UrbanNnews::Scraper.latest_stories_heading
-
-        show_description_for(chosen_volcano)
-         show_quick_facts_for(chosen_volcano)
-        see_more_volcanoes
-        end
-    goodbye 
+        puts "Which issue would you like to read about? Enter a number 1 - 14. Exit by entering 'exit'." 
+        UrbanNews::Scraper.all_issues_list_by_index(issues)
+        UrbanNews::Scraper.latest_stories_heading
+        UrbanNews::Scraper.article_title
+        UrbanNews::Scraper.article_description
+        UrbanNews::Scraper.article_meta_data
+        puts "Would you like to read about another issue? Y/N. Exit by entering 'exit'."
+      end
+      goodbye
     end
 
-
-
-
-
-
     def goodbye
-        puts "Thank you for reading"
+        puts "Thank you for reading!"
     end
 
 
   end
 end
-
-
 
