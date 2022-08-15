@@ -1,4 +1,4 @@
-# article belongs to issue
+# article belongs to an issue
 # class UrbanNews::Article
 require_relative "scraper.rb"
 
@@ -9,12 +9,13 @@ require 'pry'
 module UrbanNews
     class Article
 
-    attr_accessor :title, :description, :metadata 
+    attr_accessor :title, :description, :metadata, :issues 
 
       def initialize(title, description, metadata)
         @title = title
         @description = description
         @metadata = metadata
+        @issues = issue
       end
 
       def self.article_title
@@ -28,7 +29,7 @@ module UrbanNews
       def self.article_meta_data 
         @metadata = UrbanNews::Scraper.article_meta_data
       end
-      
+
     end
 end
 

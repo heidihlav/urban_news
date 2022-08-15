@@ -36,16 +36,17 @@ module UrbanNews
       @@all
     end
 
+    def save
+      @@all << self
+    end
+
+
     def self.get_urls
       ISSUE_URLS.each do |url|
         url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
-        name = doc.css(".view-content .issue")
-        puts UrbanNews::Issues.new(name, url)
+        name = url.css(".view-content .issue")
+        UrbanNews::Issues.new(name, url).save
        end
-    end
-
-    def save
-      @@all << self
     end
 
     # def self.print_all_issues
@@ -54,8 +55,6 @@ module UrbanNews
     #       puts "#{i} #{char}" unless i == 0
     #     end 
     # end
-
-    
 # binding.pry
 
     end
@@ -63,6 +62,7 @@ end
 
 # UrbanNews::Issues.print_all_issues
 # UrbanNews::Issues.issue_urls
-UrbanNews::Issues.get_urls
+# UrbanNews::Issues.get_urls
+# UrbanNews::Issues.new(name, url)
 
 
