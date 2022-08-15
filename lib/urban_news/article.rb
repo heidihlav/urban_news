@@ -9,13 +9,32 @@ require 'pry'
 module UrbanNews
     class Article
 
+      @@all = []
+
     attr_accessor :title, :description, :metadata, :issues 
 
       def initialize(title, description, metadata)
         @title = title
         @description = description
         @metadata = metadata
-        @issues = issue
+        @@all << self
+      end
+
+      def self.all
+        @@all
+      end
+
+      
+      def self.get_articles
+        UrbanNews::Issues.all each do |url|
+          url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
+          name = url.css(".view-content .issue")
+          UrbanNews::Issues.new(name, url).save
+         end
+      end
+
+      def issues_name
+        self.issues.name if self.issues
       end
 
       def self.article_title

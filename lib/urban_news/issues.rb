@@ -49,13 +49,15 @@ module UrbanNews
        end
     end
 
+    binding.pry
+
+
     # def self.print_all_issues
     #   @name = UrbanNews::Scraper.all_issues_list_by_index(self)
     #     @name.collect.with_index(0) do |char, i| 
     #       puts "#{i} #{char}" unless i == 0
     #     end 
     # end
-# binding.pry
 
     end
 end
