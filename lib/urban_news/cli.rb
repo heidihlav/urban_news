@@ -24,6 +24,8 @@ module UrbanNews
       goodbye
     end
 
+    call
+    
     def goodbye
         puts "Thank you for reading!"
     end
