@@ -12,14 +12,14 @@ module UrbanNews
       puts "#{intro[4]}"
     end
 
-    def self.issue_page_url
-      doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
-      issues = doc.css('.view-content a[href^="/issue/"]')
-      issues.collect do |i|
-        puts url = i.delete('href')
-        # url
-      end
-    end
+    # def self.issue_page_url
+    #   doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
+    #   issues = doc.css('.view-content a[href^="/issue/"]')
+    #   issues.collect do |i|
+    #     puts url = i.delete('href')
+    #     # url
+    #   end
+    # end
 
     def self.all_issues_list_by_index(issues)
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
@@ -67,11 +67,9 @@ module UrbanNews
 end
 
 UrbanNews::Scraper.kinder_intro
-UrbanNews::Scraper.issue_page_url
-
+# UrbanNews::Scraper.issue_page_url
 UrbanNews::Scraper.all_issues_list_by_index(self)
 UrbanNews::Scraper.latest_stories_heading
-# UrbanNews::Scraper.article_teaser
 UrbanNews::Scraper.article_title
 UrbanNews::Scraper.article_description
 UrbanNews::Scraper.article_meta_data
