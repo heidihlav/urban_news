@@ -25,7 +25,6 @@ module UrbanNews
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       puts issues = doc.css(".view-content .issue").text.split("  
         ")
-        issues
         # binding.pry
     end
 

@@ -11,19 +11,19 @@ module UrbanNews
     @@all = []
 
     ISSUE_URLS = ["/covid-19-and-cities",
-      "https://kinder.rice.edu/issue/demographics",
-      "https://kinder.rice.edu/issue/economic-development",
-      "https://kinder.rice.edu/issue/education", 
-      "https://kinder.rice.edu/issue/elections",
-      "https://kinder.rice.edu/issue/governance",
-      "https://kinder.rice.edu/issue/health", 
-      "https://kinder.rice.edu/issue/housing",
-      "https://kinder.rice.edu/issue/hurricane-harvey",
-      "https://kinder.rice.edu/issue/immigration", 
-      "https://kinder.rice.edu/issue/sun-belt",
-      "https://kinder.rice.edu/issue/transportation",
-      "https://kinder.rice.edu/issue/urban-disparity",
-      "https://kinder.rice.edu/issue/urban-planning"]
+      "/demographics",
+      "/economic-development",
+      "/education", 
+      "/elections",
+      "/governance",
+      "/health", 
+      "/housing",
+      "/hurricane-harvey",
+      "/immigration", 
+      "/sun-belt",
+      "/transportation",
+      "/urban-disparity",
+      "/urban-planning"]
     
 
     def initialize(name, url)
@@ -38,10 +38,16 @@ module UrbanNews
 
     def self.get_urls
       ISSUE_URLS.each do |url|
-        doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issue #{url}'))
-        UrbanNews::Issues.new(doc.css(".view-content .issue"))
+        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
+        name = doc.css(".view-content .issue")
+        puts UrbanNews::Issues.new(name, url)
        end
     end
+
+    def save
+      @@all << self
+    end
+
     # def self.print_all_issues
     #   @name = UrbanNews::Scraper.all_issues_list_by_index(self)
     #     @name.collect.with_index(0) do |char, i| 
