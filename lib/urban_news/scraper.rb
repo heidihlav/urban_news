@@ -21,18 +21,26 @@ module UrbanNews
     #   end
     # end
 
-    def self.all_issues_list_by_index(issues)
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-      puts issues = doc.css(".view-content .issue").text.split("  
-        ")
-        # binding.pry
-    end
+    # def self.all_issues_list_by_index(issues)
+    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
+    #   puts issues = doc.css(".view-content .issue").text.split("  
+    #     ")
+    #     # binding.pry
+    # end
 
     def self.latest_stories_heading
         doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
         puts heading = doc.css(".block__title").first.text
     end
 
+    def self.get_urls
+      #   ISSUE_URLS.each do |url|
+      #     puts url
+      #    url =         Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}"))
+      #   name = url.css("#page-header .title").text
+      #   UrbanNews::Issues.new(name, url).save
+      # end
+      # end
     
     def self.get_articles
       UrbanNews::Issues.all.each do |url|
