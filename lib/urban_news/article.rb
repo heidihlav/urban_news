@@ -27,9 +27,12 @@ module UrbanNews
       
       def self.get_articles
         UrbanNews::Issues.all each do |url|
-          url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
-          name = url.css(".view-content .issue")
-          UrbanNews::Issues.new(name, url).save
+          url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}"))
+          title = url.css("h3").text
+          description = url.css(".item-description").text
+          meta_data = url.css(".item-meta-content").text
+          # name = url.css(".view-content .issue")
+          UrbanNews::Article.new(title, description, metadata).save
          end
       end
 
