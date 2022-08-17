@@ -33,7 +33,12 @@ module UrbanNews
       @url = url
       save
     end
-    binding.pry
+
+    def add_article(title, description, metadata)
+      article = Article.new(title, description, metadata)
+      article.issues = self
+    end
+
 
     def self.all
       @@all
@@ -51,8 +56,6 @@ module UrbanNews
     #     UrbanNews::Issues.new(name, url).save
     #    end
     # end
-
-
 
     # def self.print_all_issues
     #   @name = UrbanNews::Scraper.all_issues_list_by_index(self)
