@@ -17,13 +17,19 @@ module UrbanNews
         @title = title
         @description = description
         @metadata = metadata
-        @@all << self
+        save
       end
 
       def self.all
         @@all
       end
 
+      def save
+        @@all << self
+      end
+
+      binding.pry
+  
       
       def self.get_articles
         UrbanNews::Issues.all each do |url|
@@ -55,6 +61,7 @@ module UrbanNews
     end
 end
 
+UrbanNews::Article.new(title, description, metadata)
 UrbanNews::Article.article_title
 UrbanNews::Article.article_description
 UrbanNews::Article.article_meta_data 

@@ -64,7 +64,7 @@ end
 
 # UrbanNews::Issues.print_all_issues
 # UrbanNews::Issues.issue_urls
-# UrbanNews::Issues.get_urls
-# UrbanNews::Issues.new(name, url)
+UrbanNews::Issues.new(name, url)
+UrbanNews::Issues.get_urls
 
 

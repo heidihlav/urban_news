@@ -34,9 +34,8 @@ module UrbanNews
     end
 
     def self.get_urls
-        ISSUE_URLS.each do |url|
-          puts url
-        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}"))
+      UrbanNews::Issues.all.each do |issue_url|
+        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{issue_url}"))
         name = url.css("#page-header .title").text
       UrbanNews::Issues.new(name, url).save
           end
@@ -44,13 +43,14 @@ module UrbanNews
 
     
     def self.get_articles
-      UrbanNews::Issues.all.each do |url|
-        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
+      UrbanNews::Issues.all.each do |issue_url|
+        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{issue_url}")) 
         title = url.css("h3").text
         description = url.css(".item-description").text
         meta_data = url.css(".item-meta-content").text
       UrbanNews::Article.new(title, description, meta_data).save
-     end
+      end
+    end
 
     # def self.article_title
     #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
@@ -72,19 +72,20 @@ module UrbanNews
     # end
 
 
-    
-
 
 
     end
 end
 
+
 UrbanNews::Scraper.kinder_intro
-# UrbanNews::Scraper.issue_page_url
-UrbanNews::Scraper.all_issues_list_by_index(self)
+UrbanNews::Scraper.get_urls
+UrbanNews::Scraper.get_articles
 UrbanNews::Scraper.latest_stories_heading
-UrbanNews::Scraper.article_title
-UrbanNews::Scraper.article_description
-UrbanNews::Scraper.article_meta_data
+
+# UrbanNews::Scraper.all_issues_list_by_index(self)
+# UrbanNews::Scraper.article_title
+# UrbanNews::Scraper.article_description
+# UrbanNews::Scraper.article_meta_data
 
 
