@@ -1,5 +1,5 @@
-require_relative "issues.rb"
-require_relative "article.rb"
+# require_relative "issues.rb"
+# require_relative "article.rb"
 
 
 
@@ -39,7 +39,8 @@ module UrbanNews
     end
 
     def self.get_urls
-      UrbanNews::Issues.all.each do |issue_url|
+      UrbanNews::Issues.ISSUE_URLS.each do |issue_url|
+        binding.pry
         url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{issue_url}"))
         name = url.css("#page-header .title").text
       UrbanNews::Issues.new(name, url).save

@@ -1,7 +1,7 @@
 # article belongs to an issue
 # class UrbanNews::Article
-require_relative "scraper.rb"
-require_relative "issues.rb"
+# require_relative "scraper.rb"
+# require_relative "issues.rb"
 
 
 require 'nokogiri'
@@ -32,13 +32,9 @@ module UrbanNews
       end
 
       def issues_name
-        self.issues.name
-      end
-      
-
-      def issues_name
         self.issues.name if self.issues
       end
+      
 
       # def self.article_title
       #   @title = UrbanNews::Scraper.get_articles

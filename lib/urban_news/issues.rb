@@ -9,7 +9,7 @@ require 'pry'
 
 module UrbanNews
     class Issues
-    attr_accessor :name, :url 
+    attr_accessor :name, :url, :articles
     @@all = []
 
     ISSUE_URLS = ["/covid-19-and-cities",
@@ -41,6 +41,7 @@ module UrbanNews
 
 
     def self.all
+      UrbanNews::Scraper.get_urls if @@all.empty?
       @@all
     end
 
@@ -60,7 +61,7 @@ module UrbanNews
     end
 end
 
-# UrbanNews::Issues.print_all_issues
+UrbanNews::Issues.add_article(title, description, metadata)
 # UrbanNews::Issues.issue_urls
 # UrbanNews::Issues.new(name, url)
 # UrbanNews::Issues.get_urls

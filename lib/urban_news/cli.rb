@@ -1,6 +1,6 @@
-require_relative "issues.rb"
-require_relative "article.rb"
-require_relative "scraper.rb"
+# require_relative "issues.rb"
+# require_relative "article.rb"
+# require_relative "scraper.rb"
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
