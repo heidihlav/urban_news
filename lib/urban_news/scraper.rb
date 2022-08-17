@@ -34,13 +34,14 @@ module UrbanNews
     end
 
     def self.get_urls
-      #   ISSUE_URLS.each do |url|
-      #     puts url
-      #    url =         Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}"))
-      #   name = url.css("#page-header .title").text
-      #   UrbanNews::Issues.new(name, url).save
-      # end
-      # end
+        ISSUE_URLS.each do |url|
+          puts url
+        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}"))
+        name = url.css("#page-header .title").text
+      UrbanNews::Issues.new(name, url).save
+          end
+    end
+
     
     def self.get_articles
       UrbanNews::Issues.all.each do |url|
