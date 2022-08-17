@@ -31,9 +31,9 @@ module UrbanNews
         @@all << self
       end
 
-      def issues_name
-        self.issues.name if self.issues
-      end
+      # def issues_name
+      #   self.issues.name if self.issues
+      # end
       
 
       # def self.article_title

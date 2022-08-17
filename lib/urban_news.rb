@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "urban_news/version"
-require_relative "urban_news/cli"
-require_relative "urban_news/article"
-require_relative "urban_news/issues"
-require_relative "urban_news/scraper"
+require_relative "./version.rb"
+require_relative "./cli.rb"
+require_relative "./article.rb"
+require_relative "./issues"
+require_relative "./scraper"
 
 
 

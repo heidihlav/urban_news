@@ -1,7 +1,7 @@
 #issues has many articles
 # class UrbanNews::Issues
-require_relative "scraper.rb"
-require_relative "article.rb"
+# require_relative "./scraper.rb"
+# require_relative "./article.rb"
 
 require 'nokogiri'
 require 'open-uri'
@@ -34,14 +34,16 @@ module UrbanNews
       save
     end
 
-    def add_article(title, description, metadata)
-      article = Article.new(title, description, metadata)
-      article.issues = self
-    end
+    def self.get_urls
+
+
+    # def add_article(title, description, metadata)
+    #   article = Article.new(title, description, metadata)
+    #   article.issues = self
+    # end
 
 
     def self.all
-      UrbanNews::Scraper.get_urls if @@all.empty?
       @@all
     end
 
@@ -61,7 +63,7 @@ module UrbanNews
     end
 end
 
-UrbanNews::Issues.add_article(title, description, metadata)
+# UrbanNews::Issues.add_article(title, description, metadata)
 # UrbanNews::Issues.issue_urls
 # UrbanNews::Issues.new(name, url)
 # UrbanNews::Issues.get_urls
