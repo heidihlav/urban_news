@@ -1,6 +1,8 @@
 #issues has many articles
 # class UrbanNews::Issues
 require_relative "scraper.rb"
+require_relative "article.rb"
+
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
@@ -31,6 +33,7 @@ module UrbanNews
       @url = url
       save
     end
+    binding.pry
 
     def self.all
       @@all
@@ -41,15 +44,14 @@ module UrbanNews
     end
 
 
-    def self.get_urls
-      ISSUE_URLS.each do |url|
-        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
-        name = url.css(".view-content .issue")
-        UrbanNews::Issues.new(name, url).save
-       end
-    end
+    # def self.get_urls
+    #   ISSUE_URLS.each do |url|
+    #     url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
+    #     name = url.css(".view-content .issue")
+    #     UrbanNews::Issues.new(name, url).save
+    #    end
+    # end
 
-    binding.pry
 
 
     # def self.print_all_issues
@@ -65,6 +67,4 @@ end
 # UrbanNews::Issues.print_all_issues
 # UrbanNews::Issues.issue_urls
 UrbanNews::Issues.new(name, url)
-UrbanNews::Issues.get_urls
-
-
+# UrbanNews::Issues.get_urls

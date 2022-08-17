@@ -1,3 +1,8 @@
+require_relative "issues.rb"
+require_relative "article.rb"
+
+
+
 require 'nokogiri'
 require 'open-uri'
 require 'pry'

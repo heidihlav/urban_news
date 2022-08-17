@@ -1,6 +1,8 @@
 # article belongs to an issue
 # class UrbanNews::Article
 require_relative "scraper.rb"
+require_relative "issues.rb"
+
 
 require 'nokogiri'
 require 'open-uri'
