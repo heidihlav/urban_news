@@ -48,14 +48,7 @@ module UrbanNews
       @@all << self
     end
 
-
-    # def self.get_urls
-    #   ISSUE_URLS.each do |url|
-    #     url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}")) 
-    #     name = url.css(".view-content .issue")
-    #     UrbanNews::Issues.new(name, url).save
-    #    end
-    # end
+    # binding.pry
 
     # def self.print_all_issues
     #   @name = UrbanNews::Scraper.all_issues_list_by_index(self)
@@ -69,5 +62,5 @@ end
 
 # UrbanNews::Issues.print_all_issues
 # UrbanNews::Issues.issue_urls
-UrbanNews::Issues.new(name, url)
+# UrbanNews::Issues.new(name, url)
 # UrbanNews::Issues.get_urls

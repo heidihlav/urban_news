@@ -1,3 +1,5 @@
+require_relative "issues.rb"
+require_relative "article.rb"
 require_relative "scraper.rb"
 require 'nokogiri'
 require 'open-uri'
@@ -8,6 +10,17 @@ require 'pry'
 module UrbanNews
   class CLI
 
+   
+         puts UrbanNews::Scraper.kinder_intro
+         puts UrbanNews::Issues.new(name, url)
+         puts UrbanNews::Article.new(title, description, metadata)
+
+
+
+   
+   
+   
+   
     # def call
     #   puts "Welcome to Urban News! Read the latest stories on urban issues affecting Houston and Texas."
     #   puts UrbanNews::Scraper.kinder_intro
@@ -26,9 +39,9 @@ module UrbanNews
 
     # call
     
-    # def goodbye
-    #     puts "Thank you for reading!"
-    # end
+    def goodbye
+        puts "Thank you for reading!"
+    end
 
 
   end

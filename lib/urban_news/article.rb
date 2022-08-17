@@ -21,7 +21,7 @@ module UrbanNews
         @metadata = metadata
         save
       end
-      binding.pry
+      # binding.pry
 
       def self.all
         @@all
@@ -35,16 +35,6 @@ module UrbanNews
         self.issues.name
       end
       
-      # def self.get_articles
-      #   UrbanNews::Issues.all each do |url|
-      #     url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{url}"))
-      #     title = url.css("h3").text
-      #     description = url.css(".item-description").text
-      #     meta_data = url.css(".item-meta-content").text
-      #     # name = url.css(".view-content .issue")
-      #     UrbanNews::Article.new(title, description, metadata).save
-      #    end
-      # end
 
       def issues_name
         self.issues.name if self.issues
@@ -65,7 +55,7 @@ module UrbanNews
     end
 end
 
-UrbanNews::Article.new(title, description, metadata)
+# UrbanNews::Article.new(title, description, metadata)
 # UrbanNews::Article.article_title
 # UrbanNews::Article.article_description
 # UrbanNews::Article.article_meta_data 
