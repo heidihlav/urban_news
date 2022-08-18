@@ -1,5 +1,3 @@
-# require_relative "issues.rb"
-# require_relative "article.rb"
 require_relative "../urban_news.rb"
 
 
