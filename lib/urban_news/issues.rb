@@ -34,7 +34,7 @@ module UrbanNews
       save
     end
 
-    def self.get_urls
+    # def self.get_urls
 
 
     # def add_article(title, description, metadata)

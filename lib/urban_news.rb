@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "./version.rb"
-require_relative "./cli.rb"
-require_relative "./article.rb"
+require_relative "./version"
+require_relative "./cli"
+require_relative "./article"
 require_relative "./issues"
 require_relative "./scraper"
 
