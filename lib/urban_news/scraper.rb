@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-module UrbanNews
+# module UrbanNews
     class Scraper
 
       ISSUE_URLS = ["/covid-19-and-cities",
@@ -94,7 +94,7 @@ module UrbanNews
 
 
     end
-end
+# end
 
 
 UrbanNews::Scraper.kinder_intro

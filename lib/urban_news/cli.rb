@@ -1,19 +1,19 @@
 # require_relative "issues.rb"
 # require_relative "article.rb"
-# require_relative "scraper.rb"
+require_relative "scraper.rb"
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
 
 
-module UrbanNews
-  class CLI
-
+# module UrbanNews
+  class UrbanNews::CLI
+puts "hi"
    
-         puts UrbanNews::Scraper.kinder_intro
-         puts UrbanNews::Issues.new(name, url)
-         puts UrbanNews::Article.new(title, description, metadata)
+        #  puts UrbanNews::Scraper.kinder_intro
+        #  puts UrbanNews::Issues.new(name, url)
+        #  puts UrbanNews::Article.new(title, description, metadata)
 
 
 
@@ -45,5 +45,8 @@ module UrbanNews
 
 
   end
-end
+# end
 
+UrbanNews::Scraper.kinder_intro
+UrbanNews::Issues.new(name, url)
+UrbanNews::Article.new(title, description, metadata)

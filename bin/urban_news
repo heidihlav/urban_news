@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require_relative '../lib/urban_news'
 
 UrbanNews::CLI.new.call
