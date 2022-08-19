@@ -6,7 +6,8 @@ require 'open-uri'
 require 'pry'
 
 # module UrbanNews
-    class Scraper
+    class UrbanNews::Scraper
+
 
       ISSUE_URLS = ["/covid-19-and-cities",
         "/demographics",
@@ -97,10 +98,10 @@ require 'pry'
 # end
 
 
-UrbanNews::Scraper.kinder_intro
-UrbanNews::Scraper.get_urls
-UrbanNews::Scraper.get_articles
-UrbanNews::Scraper.latest_stories_heading
+# UrbanNews::Scraper.kinder_intro
+# UrbanNews::Scraper.get_urls
+# UrbanNews::Scraper.get_articles
+# UrbanNews::Scraper.latest_stories_heading
 
 # UrbanNews::Scraper.all_issues_list_by_index(self)
 # UrbanNews::Scraper.article_title
