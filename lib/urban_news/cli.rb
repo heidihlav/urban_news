@@ -7,8 +7,8 @@ require 'pry'
 
 
 
-# module UrbanNews
-  class UrbanNews::CLI
+module UrbanNews
+  class CLI
 
     def call
     puts "hi"
@@ -48,7 +48,7 @@ require 'pry'
 
 
   end
-# end
+end
 
 # UrbanNews::Scraper.kinder_intro
 # UrbanNews::Issues.new(name, url)

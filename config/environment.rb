@@ -1,6 +1,10 @@
 require 'bundler/setup'
 Bundler.require(:default, :development)
 
+module UrbanNews
+
+end
+
 require 'pry'
 require 'nokogiri'
 require 'open-uri'

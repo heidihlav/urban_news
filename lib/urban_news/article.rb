@@ -8,8 +8,8 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-# module UrbanNews
-    class UrbanNews::Article
+module UrbanNews
+    class Article
 
       @@all = []
 
@@ -49,7 +49,7 @@ require 'pry'
       # end
 
     end
-# end
+end
 
 # UrbanNews::Article.new(title, description, metadata)
 # UrbanNews::Article.article_title

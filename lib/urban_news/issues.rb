@@ -7,9 +7,10 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-# module UrbanNews
-    class UrbanNews::Issues
-      
+module UrbanNews
+    class Issues
+
+      puts 'hi'
     attr_accessor :name, :url, :articles
     @@all = []
 
@@ -62,7 +63,7 @@ require 'pry'
     # end
 
     end
-# end
+end
 
 # UrbanNews::Issues.add_article(title, description, metadata)
 # UrbanNews::Issues.issue_urls
