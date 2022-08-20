@@ -10,7 +10,6 @@ require 'pry'
 module UrbanNews
     class Issues
 
-      puts 'hi'
     attr_accessor :name, :url, :articles
     @@all = []
 
@@ -35,6 +34,7 @@ module UrbanNews
       @url = url
       save
     end
+
 
     # def self.get_urls
 

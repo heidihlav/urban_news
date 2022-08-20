@@ -8,22 +8,6 @@ require 'pry'
 module UrbanNews
     class Scraper
 
-
-      ISSUE_URLS = ["/covid-19-and-cities",
-        "/demographics",
-        "/economic-development",
-        "/education", 
-        "/elections",
-        "/governance",
-        "/health", 
-        "/housing",
-        "/hurricane-harvey",
-        "/immigration", 
-        "/sun-belt",
-        "/transportation",
-        "/urban-disparity",
-        "/urban-planning"]
-
     def self.kinder_intro
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       intro = doc.css("div .main div .content").text.split("    ")
@@ -52,15 +36,18 @@ module UrbanNews
         puts heading = doc.css(".block__title").first.text
     end
 
-    def self.get_urls
-      UrbanNews::Issues.all.each do |issue_url|
-        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{issue_url}"))
-        name = url.css("#page-header .title").text
-        binding.pry
-      UrbanNews::Issues.new(name, url).save
-          end
-    end
 
+     
+    def self.get_urls
+      # UrbanNews::Issues.all.each do |issue_url|
+        doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
+        url= doc.css(".issue a").map { |anchor| anchor["href"] }
+        name = doc.css(".issue a").map { |n| n.text }
+        # url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue + #{issue_url}"))
+      # UrbanNews::Issues.new(name, url).save
+        end
+        binding.pry
+    end
     
     def self.get_articles
       UrbanNews::Issues.all.each do |issue_url|
