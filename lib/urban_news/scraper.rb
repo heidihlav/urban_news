@@ -1,6 +1,5 @@
 require_relative "../urban_news.rb"
 
-
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
@@ -14,85 +13,30 @@ module UrbanNews
       puts "#{intro[3]}" 
       puts "#{intro[4]}"
     end
+   
 
-    # def self.issue_page_url
-    #   doc = Nokogiri::HTML(URI.open('https://kinder.rice.edu/issues'))
-    #   issues = doc.css('.view-content a[href^="/issue/"]')
-    #   issues.collect do |i|
-    #     puts url = i.delete('href')
-    #     # url
-    #   end
-    # end
-
-    # def self.all_issues_list_by_index(issues)
-    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-    #   puts issues = doc.css(".view-content .issue").text.split("  
-    #     ")
-    #     # binding.pry
-    # end
-
-    def self.latest_stories_heading
-        doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-        puts heading = doc.css(".block__title").first.text
-    end
-
-
-     
-    def self.get_urls
+    def self.get_latest_story
       # UrbanNews::Issues.all.each do |issue_url|
-        doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
-        url= doc.css(".issue a").map { |anchor| anchor["href"] }
-        name = doc.css(".issue a").map { |n| n.text }
-        # url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue + #{issue_url}"))
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
+      title = doc.css(".featured-item.Urban.Edge .item-title").text
+      description = doc.css(".featured-item.Urban.Edge .item-description").text
       # UrbanNews::Issues.new(name, url).save
-        end
-        binding.pry
     end
     
-    def self.get_articles
-      UrbanNews::Issues.all.each do |issue_url|
-        url = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issue#{issue_url}")) 
-        title = url.css("h3").text
-        description = url.css(".item-description").text
-        meta_data = url.css(".item-meta-content").text
-      UrbanNews::Article.new(title, description, meta_data).save
-      end
+    def self.get_top_stories
+      # UrbanNews::Issues.all.each do |issue_url|
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
+      title = doc.css("#block-views-blog-posts-top .item .item-title").text
+      description = doc.css("#block-views-blog-posts-top .item .item-description").text
+      metadata = doc.css("#block-views-blog-posts-top .item .item-meta-content").text
+      # UrbanNews::Article.new(title, description, meta_data).save
     end
-
-    # def self.article_title
-    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-    #   titles = doc.css("h3")
-    #     titles.collect do |t|
-    #       puts t.text.split("h3")
-    #     end
-    # end
-
-    # def self.article_description
-    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-    #   puts descriptions = doc.css(".item-description p").text
-    # end
-
-
-    # def self.article_meta_data
-    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-    #   puts doc.css(".item-meta-content").text
-    # end
-
-
 
 
     end
 end
 
 
-# UrbanNews::Scraper.kinder_intro
-# UrbanNews::Scraper.get_urls
-# UrbanNews::Scraper.get_articles
-# UrbanNews::Scraper.latest_stories_heading
-
 # UrbanNews::Scraper.all_issues_list_by_index(self)
-# UrbanNews::Scraper.article_title
-# UrbanNews::Scraper.article_description
-# UrbanNews::Scraper.article_meta_data
 
 

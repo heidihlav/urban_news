@@ -5,4 +5,5 @@ require_relative '../lib/urban_news'
 
 
 UrbanNews::CLI.new.call
-UrbanNews::Scraper.get_urls
+UrbanNews::Scraper.get_articles
+
