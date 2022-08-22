@@ -5,3 +5,4 @@ end
 # require 'lib/urban_news'
 
 require_relative '../config/environment'
+require_relative "../lib/urban_news/scraper"
