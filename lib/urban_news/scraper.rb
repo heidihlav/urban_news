@@ -22,13 +22,14 @@ module UrbanNews
       metadata = doc.css("#block-views-blog-posts-top .item .item-meta-content").text
 
     end
-    
+
     def self.get_latest_story
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
       title = doc.css(".featured-item.Urban.Edge .item-title").text
       description = doc.css(".featured-item.Urban.Edge .item-description").text
-      metadata = doc.css(".item-meta-content").text
-      # UrbanNews::Story.new(title, description, metadata)
+      # metadata = doc.css(".item-meta-content").text
+      "#{title}" + "#{description}" 
+      binding.pry
     end
 
 

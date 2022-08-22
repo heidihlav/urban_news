@@ -6,4 +6,5 @@ require_relative '../lib/urban_news'
 
 # UrbanNews::CLI.new.call
 UrbanNews::Scraper.get_top_stories
+UrbanNews::Story.latest_story
 

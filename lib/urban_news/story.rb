@@ -13,12 +13,18 @@ module UrbanNews
       @title = title
       @description = description
       @metadata = metadata
-      @latest_story = latest_story
       @@all << self 
     end
 
     def self.all
       @@all
+    end
+
+    def self.latest_story
+      @latest_story = UrbanNews::Scraper.get_latest_story
+      binding.pry
+
+        
     end
 
 
