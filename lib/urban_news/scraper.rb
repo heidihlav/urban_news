@@ -14,23 +14,23 @@ module UrbanNews
       puts "#{intro[4]}"
     end
    
-
-    def self.get_latest_story
-      # UrbanNews::Issues.all.each do |issue_url|
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
-      title = doc.css(".featured-item.Urban.Edge .item-title").text
-      description = doc.css(".featured-item.Urban.Edge .item-description").text
-      # UrbanNews::Issues.new(name, url).save
-    end
     
     def self.get_top_stories
-      # UrbanNews::Issues.all.each do |issue_url|
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
       title = doc.css("#block-views-blog-posts-top .item .item-title").text
       description = doc.css("#block-views-blog-posts-top .item .item-description").text
       metadata = doc.css("#block-views-blog-posts-top .item .item-meta-content").text
-      # UrbanNews::Article.new(title, description, meta_data).save
+      UrbanNews::Story.new(title, description, metadata)
+      binding.pry
     end
+
+    # def self.get_latest_story
+    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/"))
+    #   title = doc.css(".featured-item.Urban.Edge .item-title").text
+    #   description = doc.css(".featured-item.Urban.Edge .item-description").text
+    #   metadata = doc.css(".item-meta-content").text
+    #   # UrbanNews::Story.new(title, description, metadata)
+    # end
 
 
     end

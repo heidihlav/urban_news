@@ -1,5 +1,9 @@
+require 'pry'
+
 module UrbanNews
   class Story
+
+    @@all = []
 
     attr_accessor :title, :description, :metadata
 
@@ -10,8 +14,9 @@ module UrbanNews
     end
 
 
+    def self.all
+      @@all
+    end
 
-
-        
   end
 end
