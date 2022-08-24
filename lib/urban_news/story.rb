@@ -21,10 +21,7 @@ module UrbanNews
     end
 
     def self.latest_story
-      @latest_story = UrbanNews::Scraper.get_latest_story
-      binding.pry
-
-        
+      @latest_story = UrbanNews::Scraper.get_latest_story   
     end
 
 

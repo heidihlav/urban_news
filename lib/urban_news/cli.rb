@@ -17,12 +17,6 @@ module UrbanNews
         #  puts UrbanNews::Scraper.kinder_intro
         #  puts UrbanNews::Issues.new(name, url)
         #  puts UrbanNews::Article.new(title, description, metadata)
-
-
-
-   
-   
-   
    
     # def call
     #   puts "Welcome to Urban News! Read the latest stories on urban issues affecting Houston and Texas."
