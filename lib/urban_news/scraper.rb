@@ -7,7 +7,7 @@ require 'pry'
 module UrbanNews
     class Scraper
 
-    def self.kinder_intro
+    def self.kinder_intro #gsub extra spaces btwn paragraphs?
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
       intro = doc.css("div .main div .content").text.split("    ")
       puts "#{intro[3]}" 

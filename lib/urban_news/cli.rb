@@ -12,47 +12,26 @@ module UrbanNews
 
     def call
       puts "Welcome to Urban News! Read stories on urban issues affecting Houston and Texas."
-      puts UrbanNews::Scraper.kinder_intro
+      puts "About us:" 
+      UrbanNews::Scraper.kinder_intro
       puts "Here is the latest story!"
       UrbanNews::Scraper.get_latest_story
       puts "Would you like to see our top stories? Y/N. Exit by entering 'exit'."
         @input = ""
       until @input == "exit"
         puts "Which story would you like to read? Enter a number 1 - 5. Exit by entering 'exit'." 
-        
-        if @input.between?(1,5) puts UrbanNews::Scraper.get_top_stories
-        if @input == "exit" puts goodbye
-
-
-
+        if @input.between?(1,5) 
+          UrbanNews::Scraper.get_top_stories
+        else @input == "exit" 
+          goodbye
+        end
         puts "Would you like to read about another issue? Y/N. Exit by entering 'exit'."
       end
       goodbye
 
     end
    
-        #  puts UrbanNews::Scraper.kinder_intro
-        #  puts UrbanNews::Issues.new(name, url)
-        #  puts UrbanNews::Article.new(title, description, metadata)
-   
-    # def call
-    #   puts "Welcome to Urban News! Read the latest stories on urban issues affecting Houston and Texas."
-    #   puts UrbanNews::Scraper.kinder_intro
-    #   @input = ""
-    #   until @input == "exit"
-    #     puts "Which issue would you like to read about? Enter a number 1 - 14. Exit by entering 'exit'." 
-    #     UrbanNews::Scraper.all_issues_list_by_index(issues)
-    #     UrbanNews::Scraper.latest_stories_heading
-    #     UrbanNews::Scraper.article_title
-    #     UrbanNews::Scraper.article_description
-    #     UrbanNews::Scraper.article_meta_data
-    #     puts "Would you like to read about another issue? Y/N. Exit by entering 'exit'."
-    #   end
-    #   goodbye
-    # end
-
-    # call
-    
+    def 
     def goodbye
         puts "Thank you for reading!"
     end
