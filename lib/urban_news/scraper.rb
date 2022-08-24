@@ -34,8 +34,15 @@ module UrbanNews
         puts ("#{index+1} #{element}")
       end
 
-      UrbanNews::Story.new(title, description, metadata)
+      url = doc.css("#block-views-blog-posts-top .item a")
+      @url = url.map { |u| "https://kinder.rice.edu#{u["href"]}" }
+
+      "#{title}" "#{description}" "#{metadata}" "#{url}"
+
+      UrbanNews::Story.new(title, description, metadata, url)
     end
+
+    # binding.pry
 
     def self.get_latest_story
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))

@@ -9,10 +9,11 @@ module UrbanNews
 
     attr_accessor :title, :description, :metadata, :latest_story
 
-    def initialize(title, description, metadata)
+    def initialize(title, description, metadata, url)
       @title = title
       @description = description
       @metadata = metadata
+      @url = url
       @@all << self 
     end
     # binding.pry
