@@ -11,7 +11,18 @@ module UrbanNews
   class CLI
 
     def call
-    puts "hi"
+      puts "Welcome to Urban News! Read the latest stories on urban issues affecting Houston and Texas."
+      puts UrbanNews::Scraper.kinder_intro
+        @input = ""
+      until @input == "exit"
+        puts "Which issue would you like to read about? Enter a number 1 - 14. Exit by entering 'exit'." 
+
+
+
+        puts "Would you like to read about another issue? Y/N. Exit by entering 'exit'."
+      end
+      goodbye
+
     end
    
         #  puts UrbanNews::Scraper.kinder_intro

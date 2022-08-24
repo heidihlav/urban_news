@@ -15,6 +15,7 @@ module UrbanNews
       @metadata = metadata
       @@all << self 
     end
+    # binding.pry
 
     def self.all
       @@all
