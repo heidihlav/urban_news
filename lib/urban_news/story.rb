@@ -27,7 +27,7 @@ module UrbanNews
 
     end 
 
-    binding.pry
+    # binding.pry
 
 
 

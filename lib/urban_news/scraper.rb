@@ -5,7 +5,7 @@ require 'open-uri'
 require 'pry'
 
 module UrbanNews
-    class Scraper
+  class Scraper
 
     def self.kinder_intro #gsub extra spaces btwn paragraphs?
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
@@ -14,35 +14,46 @@ module UrbanNews
     end
    
     
-    def self.get_top_stories
+    def self.get_top_stories_titles
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
-      titles = doc.css("#block-views-blog-posts-top .item .item-title").map{ |t| t.text }
-      descriptions = doc.css("#block-views-blog-posts-top .item .item-description").map{ |d| d.text }
-      # date of issue only #
-      metadatas = doc.css("#block-views-blog-posts-top .item .item-meta-content .item-date span").map { |m| m.text.strip}
-      urls = doc.css("#block-views-blog-posts-top .item a")
+      title = doc.css("#block-views-blog-posts-top .item .item-title").map{ |t| t.text }
     end
+
+    def self.get_top_stories_descriptions
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
+      description = doc.css("#block-views-blog-posts-top .item .item-description").map{ |d| d.text }
+    end
+    
+    def self.get_top_stories_metadata
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
+      metadata = doc.css("#block-views-blog-posts-top .item .item-meta-content .item-date span").map { |m| m.text.strip}
+    end
+
+    def self.get_top_stories_urls
+      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
+      url = doc.css("#block-views-blog-posts-top .item a")
+    end
+
+
 
     def self.make_top_stories
       self.get_top_stories.each do |top_story|
 
-
-      @title = titles.collect.with_index do |element, index|
+      top_story.collect.with_index do |element, index|
         puts "#{index+1} #{element}"
+        binding.pry
       end
-
       @description = descriptions.collect.with_index do |element, index|
         puts "#{index+1} #{element}"
       end
-
       @metadata = metadatas.each.with_index do |element, index|
         puts ("#{index+1} #{element}")
       end
-
       @url = urls.map { |u| "https://kinder.rice.edu#{u["href"]}" }
       UrbanNews::Story.new(title, description, metadata, url)
-
     end
+    end
+
     # binding.pry
 
     def self.get_latest_story
@@ -54,7 +65,7 @@ module UrbanNews
     end
 
 
-    end
+  end
 end
 
 
