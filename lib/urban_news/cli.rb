@@ -5,8 +5,6 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
-
-
 module UrbanNews
   class CLI
 
@@ -17,6 +15,8 @@ module UrbanNews
       puts "Here is the latest story!"
       puts UrbanNews::Scraper.get_latest_story
       puts "Would you like to see our top stories? Y/N. Exit by entering 'exit'."
+     
+     binding.pry
       @input = ""
       until @input == "exit"
         puts "Which story would you like to read? Enter a number 1 - 5. Exit by entering 'exit'." 

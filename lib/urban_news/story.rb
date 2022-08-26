@@ -4,9 +4,16 @@ require 'pry'
 
 module UrbanNews
   class Story
-    @@all = []
 
     attr_accessor :title, :description, :metadata, :url, :latest_story
+    @@all = []
+
+
+    def self.top_stories(title, description, metadata, url)
+      story = self.new(title, description, metadata, url)      
+      @@all << [@title = story.title, @description = story.description, @metadata = story.metadata, @url = story.url]
+    end
+
 
     def initialize(title, description, metadata, url)
       @title = title
@@ -15,27 +22,20 @@ module UrbanNews
       @url = url
       @@all << self 
     end
-    # binding.pry
+
 
     def self.all
       @@all
     end
 
 
-    def title
-      UrbanNews::Scraper.get_top_stories.title
-
-    end 
-
-    # binding.pry
-
-
-
-
     def self.latest_story
       @latest_story = UrbanNews::Scraper.get_latest_story   
     end
 
-
   end
 end
+
+# UrbanNews::Scraper.get_top_stories
+# UrbanNews::Scraper.make_top_stories
+

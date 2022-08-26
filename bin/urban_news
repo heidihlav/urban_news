@@ -3,10 +3,15 @@
 require_relative '../lib/urban_news'
 # require_relative '../config/environment'
 
-# UrbanNews::Story.new(title, description, metadata, url)
-UrbanNews::Scraper.make_top_stories
 
 # UrbanNews::CLI.new.call
-# UrbanNews::Scraper.get_top_stories
-# UrbanNews::Story.latest_story
+UrbanNews::Scraper.get_top_stories
+UrbanNews::Scraper.make_top_stories
+UrbanNews::Scraper.top_stories_by_index
+
+UrbanNews::Story.top_stories
+
+# UrbanNews::Story.top_stories
+
+
 
