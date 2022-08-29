@@ -9,12 +9,6 @@ module UrbanNews
     @@all = []
 
 
-    def self.top_stories(title, description, metadata, url)
-      story = self.new(title, description, metadata, url)      
-      @@all << [@title = story.title, @description = story.description, @metadata = story.metadata, @url = story.url]
-    end
-
-
     def initialize(title, description, metadata, url)
       @title = title
       @description = description
@@ -23,11 +17,15 @@ module UrbanNews
       @@all << self 
     end
 
-
     def self.all
       @@all
     end
-
+# binding.pry
+    # def self.top_stories(title, description, metadata, url)
+    #   puts title
+    #   binding.pry
+    #   # @@all << [@title = story.title, @description = story.description, @metadata = story.metadata, @url = story.url]
+    # end
 
     def self.latest_story
       @latest_story = UrbanNews::Scraper.get_latest_story   

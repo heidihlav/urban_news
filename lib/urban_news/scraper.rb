@@ -27,18 +27,21 @@ module UrbanNews
         description = s.css(".item-description").map{ |d| d.text }
         metadata = s.css(".item-meta-content .item-date span").map { |m| m.text.strip}
         url = s.css("a").map { |u| "https://kinder.rice.edu#{u["href"]}" }
-      UrbanNews::Story.top_stories(title, description, metadata, url)
-# binding.pry
+      UrbanNews::Story.new(title, description, metadata, url)
+binding.pry
       end
     end
 
 
-    def self.top_stories_by_index
-      make_top_stories.each do |val|
-        puts val
-      end
+    # def self.top_stories_by_index
+    #   make_top_stories.each do |val|
 
-    end
+    #     val.collect.with_index do |element, index|
+    #       "#{index+1}" "#{element}"
+
+    #     end
+    #   end
+    # end
     
 
     #   top_story.collect.with_index do |element, index|

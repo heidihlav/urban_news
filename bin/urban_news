@@ -7,11 +7,9 @@ require_relative '../lib/urban_news'
 # UrbanNews::CLI.new.call
 UrbanNews::Scraper.get_top_stories
 UrbanNews::Scraper.make_top_stories
-UrbanNews::Scraper.top_stories_by_index
+# UrbanNews::Scraper.top_stories_by_index
+# UrbanNews::Story.new
 
-UrbanNews::Story.top_stories
-
-# UrbanNews::Story.top_stories
 
 
 
