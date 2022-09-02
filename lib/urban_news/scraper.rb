@@ -22,15 +22,17 @@ module UrbanNews
     end
 
     def self.make_top_stories
+      stories = []
       get_top_stories.each do |s|
         title = s.css(".item-title").map{ |t| t.text }
         description = s.css(".item-description").map{ |d| d.text }
         metadata = s.css(".item-meta-content .item-date span").map { |m| m.text.strip}
         url = s.css("a").map { |u| "https://kinder.rice.edu#{u["href"]}" }
-      UrbanNews::Story.new(title, description, metadata, url)
-binding.pry
+      stories << {title: title, description: description, metadata: metadata, url: url}
       end
+      stories
     end
+binding.pry
 
 
     # def self.top_stories_by_index
