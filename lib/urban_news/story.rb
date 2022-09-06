@@ -9,18 +9,22 @@ module UrbanNews
     @@all = []
 
 
-    def initialize(attributes=nil)
-      if attributes
-        attributes.each do |key, value|
-        self.send(("#{key}="), value)
-        end
-      end
+    def self.new_from_blog_page(s)
+      self.new(s[:title], s[:description], s[:metadata], s[:url])
+    end
+
+
+    def initialize(title=nil, description=nil, metadata=nil, url=nil)
+      @title = title
+      @description = description
+      @metadata = metadata
+      @url = url
+      @@all << self
     end
 
     def self.all
       @@all
     end
-    binding.pry
 
     def self.top_stories
       stories = UrbanNews::Scraper.make_top_stories

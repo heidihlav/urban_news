@@ -4,11 +4,14 @@ require_relative '../lib/urban_news'
 # require_relative '../config/environment'
 
 
+UrbanNews::Scraper.new.make_stories
+
+
 # UrbanNews::CLI.new.call
-UrbanNews::Scraper.get_top_stories
-UrbanNews::Scraper.make_top_stories
-# UrbanNews::Scraper.top_stories_by_index
-UrbanNews::Story.top_stories
+# UrbanNews::Scraper.get_top_stories
+# UrbanNews::Scraper.make_top_stories
+# # UrbanNews::Scraper.top_stories_by_index
+# UrbanNews::Story.top_stories
 
 
 
