@@ -18,34 +18,34 @@ module UrbanNews
       teasers = []
       blog_page.css('#block-views-blog-posts-top .view-content').each do |t|
         t.css('.item').each do |i|
-          teaser_url = i.attr('href').to_s
+          # teaser_url = puts blog_page.css('#block-views-blog-posts-top .item a').map { |u| "https://kinder.rice.edu#{u['href']}" }.collect {|f| puts f }
           teaser_description = i.css('.item-description').text
           teaser_title = i.css('.item-title').text
-          teaser_metadata = i.css('.item-meta-content')
-          teasers << { title: teaser_title, description: teaser_description, url: teaser_url, metadata: teaser_metadata }
+          teaser_metadata = i.css('.date-display-single').children.text
+          teasers << { title: teaser_title, description: teaser_description, metadata: teaser_metadata }
         end
       end
       teasers
     end
     
-    
     def scrape_story_pages
-      stories = {}
-      story_pages = Nokogiri::HTML(URI.open('https://kinder.rice.edu/urban-edge/'))
-      links = story_pages.css('#block-views-blog-posts-top .item a').map { |u| "https://kinder.rice.edu#{u['href']}" }
-      links.each do |link|
-        if link.include?('stephen-klineberg-retrospective')
-          puts "Stephen Klineberg: A retrospective
-          Houston understands itself a little more clearly thanks to 40 years of insight from this Rice social psychologist turned urban visionary.
-          by Rose Rougeau Kinder Institute for Urban Research
-          May 4, 2022"
-        elsif !link.include?('stephen-klineberg-retrospective')
-          open_link = Nokogiri::HTML(URI.open(link))
-          puts open_link.css('div.content').text
-          stories[:content] = link
-        end
-      end
-    end
+
+
+   stories = []
+   story_pages = Nokogiri::HTML(URI.open('https://kinder.rice.edu/urban-edge/'))
+   links = story_pages.css('#block-views-blog-posts-top .item a').map { |u| "https://kinder.rice.edu#{u['href']}" }
+   links.each do |link|
+     story_url = link
+     open_link = Nokogiri::HTML(URI.open(link))
+     story_content = open_link.css('div.content').text.strip
+       # stories[:content] = link
+       stories << { url: story_url, content: story_content }
+     end
+   stories
+   # end
+ # end
+    
+    
     # stories
   
   def make_stories

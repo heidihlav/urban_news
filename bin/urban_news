@@ -11,7 +11,8 @@ UrbanNews::Scraper.new.make_stories
 # UrbanNews::Scraper.get_top_stories
 # UrbanNews::Scraper.make_top_stories
 # # UrbanNews::Scraper.top_stories_by_index
-# UrbanNews::Story.top_stories
+UrbanNews::Story.top_stories
+UrbanNews::Scraper.scrape_story_pages
 
 
 

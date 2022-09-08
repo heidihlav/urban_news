@@ -16,7 +16,7 @@ module UrbanNews
       puts UrbanNews::Scraper.get_latest_story
       puts "Would you like to see our top stories? Y/N. Exit by entering 'exit'."
      
-     binding.pry
+    #  binding.pry
       @input = ""
       until @input == "exit"
         puts "Which story would you like to read? Enter a number 1 - 5. Exit by entering 'exit'." 
