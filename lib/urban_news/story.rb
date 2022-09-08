@@ -5,7 +5,7 @@ require 'pry'
 module UrbanNews
   class Story
 
-    attr_accessor :title, :description, :metadata, :latest_story, :stories
+    attr_accessor :title, :description, :metadata, :url, :content, :latest_story
     @@all = []
 
 
@@ -13,11 +13,16 @@ module UrbanNews
       self.new(s[:title], s[:description], s[:metadata])
     end
 
+    def self.new_from_story_pages(c)
+      self.new(c[:url], c[:content])
+    end
 
-    def initialize(title=nil, description=nil, metadata=nil)
+    def initialize(title=nil, description=nil, metadata=nil, url=nil, content=nil)
       @title = title
       @description = description
       @metadata = metadata
+      @url = url
+      @content = content
       @@all << self
     end
 
@@ -33,19 +38,13 @@ module UrbanNews
        puts "#{story.description}"
        puts "#{story.metadata}"
       end
-
-    #   stories = UrbanNews::Scraper.make_top_stories
-    #   @stories = []
-    #   stories.each doq |s|
-    #     stories_array = [
-    #     s[:title],
-    #     s[:description],
-    #     s[:metadata], 
-    #     s[:url]] 
-    #     stories_array
-    #   end
-    #   @stories << stories_array
     end
+
+
+    def self.top_stories_content
+
+    end
+
 
     def self.latest_story
       @latest_story = UrbanNews::Scraper.get_latest_story   
@@ -54,7 +53,3 @@ module UrbanNews
   end
 end
 
-# UrbanNews::Scraper.get_top_stories
-# UrbanNews::Scraper.make_top_stories
-
-# << [@title = story.title, @description = story.description, @metadata = story.metadata, @url = story.url]

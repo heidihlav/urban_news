@@ -5,6 +5,7 @@ require_relative '../lib/urban_news'
 
 
 UrbanNews::Scraper.new.make_stories
+UrbanNews::Scraper.new.make_content
 
 
 # UrbanNews::CLI.new.call
