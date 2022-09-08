@@ -5,7 +5,7 @@ require 'pry'
 module UrbanNews
   class Story
 
-    attr_accessor :title, :description, :metadata, :url, :content, :latest_story
+    attr_accessor :title, :description, :metadata, :latest_story
     @@all = []
 
 
@@ -17,12 +17,10 @@ module UrbanNews
       self.new(c[:url], c[:content])
     end
 
-    def initialize(title=nil, description=nil, metadata=nil, url=nil, content=nil)
+    def initialize(title, description, metadata, url, content)
       @title = title
       @description = description
       @metadata = metadata
-      @url = url
-      @content = content
       @@all << self
     end
 
@@ -42,7 +40,12 @@ module UrbanNews
 
 
     def self.top_stories_content
-
+      self.top_stories.with_index do |story, index|
+        binding.pry
+        puts "#{index+1}." 
+        puts "#{story.url}"
+        puts "#{story.content}"
+       end
     end
 
 

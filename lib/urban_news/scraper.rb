@@ -35,15 +35,14 @@ module UrbanNews
           story_url = link
           open_link = Nokogiri::HTML(URI.open(link))
           story_content = open_link.css('div.content').text.strip
-       # stories[:content] = link
        stories << { url: story_url, content: story_content }
      end
     stories
     end
     
-  def make_stories
+    def make_stories
       self.scrape_blog_page.each do |s|
-     UrbanNews::Story.new_from_blog_page(s)
+        UrbanNews::Story.new_from_blog_page(s)
       end
     end
 
@@ -71,7 +70,7 @@ module UrbanNews
 
 
 
-    
+
 
   end
 end
