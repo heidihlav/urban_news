@@ -9,12 +9,8 @@ module UrbanNews
     @@all = []
 
     def self.new_from_blog_page(s)
-      self.new(s[:title], s[:description], s[:metadata], s[:url], s[:content)
+      self.new(s[:title], s[:description], s[:metadata], s[:url], s[:content])
     end
-
-    # def self.new_from_story_pages(c)
-    #   [c[:url], c[:content]]
-    # end
 
     def initialize(title, description, metadata, url, content)
       @title = title
@@ -29,7 +25,12 @@ module UrbanNews
       @@all
     end
 
+    def self.find(id)
+      self.all[id-1]
+    end
+
     def self.top_stories
+      # top_stories_by_index = []
       self.all.each.with_index do |story, index|
        puts "#{index+1}." 
        puts "#{story.title}"
@@ -40,7 +41,6 @@ module UrbanNews
 
     def self.top_stories_content
       self.top_stories.with_index do |story, index|
-        binding.pry
         puts "#{index+1}." 
         puts "#{story.url}"
         puts "#{story.content}"

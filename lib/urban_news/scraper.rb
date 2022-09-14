@@ -11,7 +11,7 @@ module UrbanNews
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
     end
 
-    def scrape_blog_page
+    def self.scrape_blog_page
     blog_page = Nokogiri::HTML(URI.open('https://kinder.rice.edu/urban-edge/'))
       stories = []
       blog_page.css('#block-views-blog-posts-top .view-content').each do |t|
@@ -19,42 +19,36 @@ module UrbanNews
           teaser_description = i.css('.item-description').text
           teaser_title = i.css('.item-title').text
           teaser_metadata = i.css('.date-display-single').children.text
-          links = i.css('a').map { |u| "https://kinder.rice.edu#{u['href']}" }
-          links.each do |link|
-          story_url = link
-          open_link = Nokogiri::HTML(URI.open(link))
-          story_content = open_link.css('div.content').text.strip
-          puts stories << { title: teaser_title, description: teaser_description, metadata: teaser_metadata, url: story_url, content: story_content } 
-            binding.pry
-        end
+            links = i.css('a').map { |u| "https://kinder.rice.edu#{u['href']}" }
+              links.each do |link|
+                story_url = link
+                open_link = Nokogiri::HTML(URI.open(link))
+                story_content = open_link.css('div.content').text.strip
+      stories << { title: teaser_title, description: teaser_description, metadata: teaser_metadata, url: story_url, content: story_content } 
+          end
         end
       end
+      stories
     end
     
-    def make_stories
-      self.scrape_blog_page.each do |s|
+    def self.make_stories
+      scrape_blog_page.each do |s| 
         UrbanNews::Story.new_from_blog_page(s)
       end
     end
-
-    # def make_content
-    #   self.scrape_story_pages.each do |c|
-    #     UrbanNews::Story.new_from_story_pages(c)
-    #   end
-    # end
   
-    def kinder_intro #gsub extra spaces btwn paragraphs?
+    def self.kinder_intro #gsub extra spaces btwn paragraphs?
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/issues"))
-      intro = doc.css("div .main div .content").text.split("   ")
+        intro = doc.css("div .main div .content").text.split("   ")
       puts "#{intro[3]}""#{intro[4]}"
     end
 
 
     def get_latest_story
       doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
-      title = doc.css(".featured-item.Urban.Edge .item-title").text
-      description = doc.css(".featured-item.Urban.Edge .item-description").text
-      metadata = doc.css(".featured-item.Urban.Edge .item-meta-content").text
+        title = doc.css(".featured-item.Urban.Edge .item-title").text
+        description = doc.css(".featured-item.Urban.Edge .item-description").text
+        metadata = doc.css(".featured-item.Urban.Edge .item-meta-content").text
       "#{title}" "\n\n#{description}" "#{metadata}"
     end
 
