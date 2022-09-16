@@ -8,7 +8,7 @@ UrbanNews::CLI.new.call
 # UrbanNews::Scraper.get_top_stories
 # UrbanNews::Scraper.make_top_stories
 UrbanNews::Story.top_stories
-UrbanNews::Story.top_stories_content
+# UrbanNews::Story.top_stories_content
 UrbanNews::Scraper.scrape_blog_page
 
 

@@ -31,21 +31,22 @@ module UrbanNews
 
     def self.top_stories
       # top_stories_by_index = []
-      self.all.each.with_index do |story, index|
-       puts "#{index+1}." 
+      self.all.each do |story|
        puts "#{story.title}"
        puts "#{story.description}"
        puts "#{story.metadata}"
+       puts "#{story.url}"
+       puts "#{story.content}"
       end
     end
 
-    def self.top_stories_content
-      self.top_stories.with_index do |story, index|
-        puts "#{index+1}." 
-        puts "#{story.url}"
-        puts "#{story.content}"
-       end
-    end
+    # def self.top_stories_content
+    #   self.top_stories.with_index do |story, index|
+    #     puts "#{index+1}." 
+    #     puts "#{story.url}"
+    #     puts "#{story.content}"
+    #    end
+    # end
 
     def self.latest_story
       @latest_story = UrbanNews::Scraper.get_latest_story   
