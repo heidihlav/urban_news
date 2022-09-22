@@ -7,28 +7,24 @@ require 'pry'
 module UrbanNews
   class Scraper
 
-    def get_page
-      doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
-    end
+    # def get_page
+    #   doc = Nokogiri::HTML(URI.open("https://kinder.rice.edu/urban-edge/"))
+    # end
 
     def self.scrape_blog_page
-    blog_page = Nokogiri::HTML(URI.open('https://kinder.rice.edu/urban-edge/'))
-      stories = []
-      blog_page.css('#block-views-blog-posts-top .view-content').each do |t|
-        t.css('.item').each do |i|
-          teaser_description = i.css('.item-description').text
-          teaser_title = i.css('.item-title').text
-          teaser_metadata = i.css('.date-display-single').children.text
-            links = i.css('a').map { |u| "https://kinder.rice.edu#{u['href']}" }
-              links.each do |link|
-                story_url = link
-                open_link = Nokogiri::HTML(URI.open(link))
-                story_content = open_link.css('div.content').text.strip
-      stories << { title: teaser_title, description: teaser_description, metadata: teaser_metadata, url: story_url, content: story_content } 
-          end
+      latest_posts = Nokogiri::HTML(URI.open('https://kinder.rice.edu/urbanedge'))
+      articles = []
+        latest_posts.css('.article.article--info').each do |post|
+          article_title = post.css('.article__news-list-summary-label strong').text
+            article_summary = post.css('p.summary').text
+              article_credit = post.css('div.created').text
+                post.css('a.article__news-list-summary-label[href]').collect do |link|
+                  article_url = "https://kinder.rice.edu/#{link['href']}"
+                  open_link = Nokogiri::HTML(URI.open("#{article_url}"))
+                    article_content = open_link.css('.article__body').text.strip
+      articles << { title: article_title, summary: article_summary, date: article_credit, url: article_url, content: article_content } 
         end
       end
-      stories
     end
     
     def self.make_stories

@@ -24,6 +24,7 @@ module UrbanNews
     def self.all
       @@all
     end
+    binding.pry
 
     def self.find(id)
       self.all[id-1]

@@ -11,21 +11,50 @@ module UrbanNews
 
     def call
       # UrbanNews::Scraper.make_stories
+      # binding.pry
       puts "Welcome to Urban News! Read stories on urban issues affecting Houston and the U.S."
       " "
-      start        
-    end
-
-    def start
       puts "Would you like to see our top stories? Y/N."
       user_input = gets.strip
-      print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
-      puts "Which story would you like to read? Enter the number of the story."
-      " "
-      input = gets.strip
-      chosen_one = UrbanNews::Story.find(input.to_i) ##input is number picked by user
-      print_chosen_story(chosen_one)
-      read_another_story(user_input)
+        if user_input.downcase == "y"
+          print_teasers
+          puts "Which story would you like to read? Enter the number of the story."
+          user_input = gets.strip
+          print_chosen_story(user_input)
+          input = gets.strip
+          read_another_story(input)
+
+        elsif user_input.downcase == "n"
+          puts "Thank you for reading!"
+          exit
+        else
+          puts "Try again."
+          call
+        end
+
+     
+
+
+      # input = gets.strip
+      # puts "Which story would you like to read? Enter the number of the story."
+      # chosen_one = UrbanNews::Story.find(input.to_i) ##input is number picked by user
+      # print_chosen_story(chosen_one)
+      # read_another_story(user_input)
+      
+      
+      # start       
+
+    end
+
+    def get_stories
+    end
+    # def start
+    #   user_input = gets.strip
+    #   print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
+    #   input = gets.strip
+    #   chosen_one = UrbanNews::Story.find(input.to_i) ##input is number picked by user
+    #   print_chosen_story(chosen_one)
+    #   read_another_story(user_input)
 
 
       # input = gets.strip.downcase
@@ -38,46 +67,34 @@ module UrbanNews
       #   puts "Try again."
       #   start
       # end
-    end
+    # end
 
    ## user_input will be Y/N/exit #Y triggers print_teasers # N will exit
-    def print_teasers(user_input) ##this only needs to be print title/description/date
-      UrbanNews::Story.top_stories.map.with_index do |s, index|
-        if user_input.downcase == "y"
+    def print_teasers
+      UrbanNews::Story.all.collect.with_index do |s, index|  
           puts "#{index+1}." " " "#{s.title}"
           puts "#{s.description}"
           puts "#{s.metadata}"
           puts "-------------"
-        elsif user_input == "n"
-          puts "Thank you for reading!"
-          exit
-        else
-          puts "Try again."
-          start
         end
+    end
+
+
+    def print_chosen_story(user_input)
+      UrbanNews::Story.top_stories.map.with_index do |s, index|
+          if user_input.to_i == index
+            puts "#{index+1}." "#{s.url}"
+            puts "-------------"
+            puts "#{s.content}"
+            puts "-------------"
+          end
       end
     end
     
-    def print_chosen_story(chosen_one)
-      UrbanNews::Story.top_stories.map.with_index do |s, index|
-        if chosen_one.downcase == "y"
-          puts "#{index+1}." "#{s.url}"
-          puts "-------------"
-          puts "#{s.content}"
-          puts "-------------"
-        elsif input == "n"
-          puts "Thank you for reading!"
-          exit
-        else
-          puts "Try again."
-          start
-        end
-      end
-    end
 
-    def read_another_story(user_input)
+    def read_another_story(input)
       puts "Would you like to read another story? Y/N."
-      print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
+      # print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
     end
    
    
