@@ -32,18 +32,12 @@ module UrbanNews
           call
         end
 
-     
-
-
       # input = gets.strip
       # puts "Which story would you like to read? Enter the number of the story."
       # chosen_one = UrbanNews::Story.find(input.to_i) ##input is number picked by user
       # print_chosen_story(chosen_one)
       # read_another_story(user_input)
-      
-      
       # start       
-
     end
 
     def get_stories
@@ -101,11 +95,6 @@ module UrbanNews
     def self.read_top_stories
       UrbanNews::Story.top_stories
     end
-
-
-    
-
-
 
   end
 end
