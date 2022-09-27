@@ -11,18 +11,22 @@ module UrbanNews
 
     def call
       UrbanNews::Scraper.make_articles
-      puts "Welcome to Urban News! Read stories on urban issues affecting Houston and the U.S."
+      puts " "
+      puts "*** Welcome to Urban News! Read stories on urban issues affecting Houston and the U.S. ***"
+      puts " "
       start
     end
       
     def start
-      " "
-      puts "Here are our Latest Posts:"
-      " "
+      puts " "
+      puts "-------------Here are our Latest Posts:-------------"
+      puts " "
       print_title_and_summary  # print_title_and_summary_with_index of each story
+      puts " "
       puts "Which story would you like to read? Enter the number of the story."
-      input = gets.strip.to_i
-      print_url_content_credit(input) # print_credit_url_content for chosen story aka input
+      input = gets.strip
+      story = UrbanNews::Story.find(input.to_i)
+      print_url_content_credit(story) # print_credit_url_content for chosen story aka input
       puts "Would you like to read another story? Y/N."
 
       input = gets.strip
@@ -39,16 +43,24 @@ module UrbanNews
 
         def print_title_and_summary
           UrbanNews::Story.all.each.with_index do |story, index|
-              puts "#{index}. #{story.title}"
-              puts "#{story.summary}"
+            puts " "
+            puts "Story# #{index+1}. #{story.title}"
+            puts " "
+            puts "#{story.summary}"
+            puts " "
+            puts "----------------------------------------------------"
           end
         end
 
-        def print_url_content_credit(input)
-          story = UrbanNews::Story.find(input.to_i)
-          binding.pry
-          # UrbanNews::Story.all[input-1].each.with_index(input) do |story, index|
-
+        def print_url_content_credit(user_input)
+          puts " "
+          puts "Source: #{user_input.url}"
+          puts " "
+          puts "#{user_input.credit}"
+          puts " "
+          puts "#{user_input.content}" 
+          # UrbanNews::Story.all[user_input-1].each.with_index(user_input) do |story, index|
+          end
         end
         
         # UrbanNews::Story.all[input-1].each.with_index(input) do |story, index|
@@ -64,8 +76,6 @@ module UrbanNews
       # start       
 
 
-    def get_stories
-    end
     # def start
     #   user_input = gets.strip
     #   print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
