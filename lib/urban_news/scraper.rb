@@ -25,8 +25,8 @@ module UrbanNews
     end
     
     def self.make_articles
-      scrape_blog_page.each do |a| 
-        UrbanNews::Story.new_from_blog_page(a)
+      scrape_blog_page.each do |s| 
+        UrbanNews::Story.new_from_blog_page(s)
       end
     end
   

@@ -8,8 +8,8 @@ module UrbanNews
     attr_accessor :title, :summary, :credit, :url, :content
     @@all = []
 
-    def self.new_from_blog_page(a)
-      self.new(a[:title], a[:summary], a[:credit], a[:url], a[:content])
+    def self.new_from_blog_page(s)
+      self.new(s[:title], s[:summary], s[:credit], s[:url], s[:content])
     end
 
     def initialize(title, summary, credit, url, content)
@@ -31,12 +31,12 @@ module UrbanNews
 
     def self.latest_posts
       # top_stories_by_index = []
-      self.all.each do |article|
-       puts "#{article.title}"
-       puts "#{article.summary}"
-       puts "#{article.credit}"
-       puts "#{article.url}"
-       puts "#{article.content}"
+      self.all.each do |story|
+       puts "#{story.title}"
+       puts "#{story.summary}"
+       puts "#{story.credit}"
+       puts "#{story.url}"
+       puts "#{story.content}"
       end
     end
 

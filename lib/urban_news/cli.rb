@@ -10,35 +10,59 @@ module UrbanNews
   class CLI
 
     def call
-      # UrbanNews::Scraper.make_stories
-      # binding.pry
+      UrbanNews::Scraper.make_articles
       puts "Welcome to Urban News! Read stories on urban issues affecting Houston and the U.S."
+      start
+    end
+      
+    def start
       " "
-      puts "Would you like to see our top stories? Y/N."
-      user_input = gets.strip
-        if user_input.downcase == "y"
-          print_teasers
-          puts "Which story would you like to read? Enter the number of the story."
-          user_input = gets.strip
-          print_chosen_story(user_input)
-          input = gets.strip
-          read_another_story(input)
+      puts "Here are our Latest Posts:"
+      " "
+      print_title_and_summary  # print_title_and_summary_with_index of each story
+      puts "Which story would you like to read? Enter the number of the story."
+      input = gets.strip.to_i
+      print_url_content_credit(input) # print_credit_url_content for chosen story aka input
+      puts "Would you like to read another story? Y/N."
 
-        elsif user_input.downcase == "n"
+      input = gets.strip
+        if input.downcase == "y"
+          start
+        elsif input.downcase == "n"
           puts "Thank you for reading!"
           exit
         else
           puts "Try again."
-          call
+          start
+        end
+    end 
+
+        def print_title_and_summary
+          UrbanNews::Story.all.each.with_index do |story, index|
+              puts "#{index}. #{story.title}"
+              puts "#{story.summary}"
+          end
         end
 
+        def print_url_content_credit(input)
+          story = UrbanNews::Story.find(input.to_i)
+          binding.pry
+          # UrbanNews::Story.all[input-1].each.with_index(input) do |story, index|
+
+        end
+        
+        # UrbanNews::Story.all[input-1].each.with_index(input) do |story, index|
+        #   puts "#{index}. #{story.title}"
+        #   puts " "
+        #   puts "#{story.summary}"
+        # end
       # input = gets.strip
       # puts "Which story would you like to read? Enter the number of the story."
       # chosen_one = UrbanNews::Story.find(input.to_i) ##input is number picked by user
       # print_chosen_story(chosen_one)
       # read_another_story(user_input)
       # start       
-    end
+
 
     def get_stories
     end
@@ -64,32 +88,31 @@ module UrbanNews
     # end
 
    ## user_input will be Y/N/exit #Y triggers print_teasers # N will exit
-    def print_teasers
-      UrbanNews::Story.all.collect.with_index do |s, index|  
-          puts "#{index+1}." " " "#{s.title}"
-          puts "#{s.description}"
-          puts "#{s.metadata}"
-          puts "-------------"
-        end
-    end
+    # def print_latest_posts
+    #   UrbanNews::Story.all.collect.with_index do |s, index|  
+    #       puts "#{index+1}." " " "#{s.title}"
+    #       puts "#{s.description}"
+    #       puts "#{s.metadata}"
+    #       puts "-------------"
+    #     end
+    # end
 
 
-    def print_chosen_story(user_input)
-      UrbanNews::Story.top_stories.map.with_index do |s, index|
-          if user_input.to_i == index
-            puts "#{index+1}." "#{s.url}"
-            puts "-------------"
-            puts "#{s.content}"
-            puts "-------------"
-          end
-      end
-    end
+    # def print_chosen_story(user_input)
+    #   UrbanNews::Story.top_stories.map.with_index do |s, index|
+    #       if user_input.to_i == index
+    #         puts "#{index+1}." "#{s.url}"
+    #         puts "-------------"
+    #         puts "#{s.content}"
+    #         puts "-------------"
+    #       end
+    #   end
+    # end
     
 
-    def read_another_story(input)
-      puts "Would you like to read another story? Y/N."
-      # print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
-    end
+    # def read_another_story(input)
+    #   # print_teasers(user_input) ## input will be Y/N/exit #Y triggers print_teasers # N will exit
+    # end
    
    
     def self.read_top_stories
