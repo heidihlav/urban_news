@@ -23,18 +23,17 @@ module UrbanNews
       puts " "
       print_title_and_summary  # print_title_and_summary_with_index of each story
       puts " "
-      puts "Which story would you like to read? Enter the number of the story. Leave at any time by entering 'exit'."
+      puts "Which story would you like to read? Enter the number of the story."
       input = gets.strip
       story = UrbanNews::Story.find(input.to_i)
+
+      # binding.pry
       print_url_content_credit(story) # print_credit_url_
       puts "Would you like to read another story? Y/N."
       input = gets.strip
           if input.downcase == "y"
             start
           elsif input.downcase == "n"
-            puts "Thank you for reading!"
-            exit
-          elsif input.downcase == "exit"
             puts "Thank you for reading!"
             exit
           else
@@ -73,14 +72,12 @@ module UrbanNews
         end
 
         def print_url_content_credit(user_input)
-          if user_input == nil
+          # if user_input == nil
+          #   puts " "
+          #   puts "***Try again.***"
+          #   start
+          # else 
             puts " "
-            puts "***Try again.***"
-            start
-          elsif user_input == "exit"
-            puts "Thank you for reading!"
-            exit
-          else puts " "
           puts "Source: #{user_input.url}"
           puts " "
           puts "#{user_input.title}"
@@ -88,7 +85,7 @@ module UrbanNews
           puts "#{user_input.credit}"
           puts " "
           puts "#{user_input.content}" 
-          end
+          # end
           # UrbanNews::Story.all[user_input-1].each.with_index(user_input) do |story, index|
         end
         
