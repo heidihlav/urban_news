@@ -31,11 +31,11 @@ module UrbanNews
 
     def self.latest_posts
       self.all.each do |story|
-       puts "#{story.title}"
-       puts "#{story.summary}"
-       puts "#{story.credit}"
-       puts "#{story.url}"
-       puts "#{story.content}"
+        puts "#{story.title}"
+        puts "#{story.summary}"
+        puts "#{story.credit}"
+        puts "#{story.url}"
+        puts "#{story.content}"
       end
     end
 

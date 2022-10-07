@@ -17,9 +17,9 @@ module UrbanNews
                   story_url = "https://kinder.rice.edu#{link['href']}"
                   open_link = Nokogiri::HTML(URI.open("#{story_url}"))
                   story_content = open_link.css('.article__body').text.strip
-      stories << { title: story_title, summary: story_summary, credit: story_credit, url: story_url, content: story_content } 
+        stories << { title: story_title, summary: story_summary, credit: story_credit, url: story_url, content: story_content } 
+                end
         end
-      end
       stories
     end
     
