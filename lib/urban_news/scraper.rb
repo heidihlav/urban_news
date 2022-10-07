@@ -36,6 +36,3 @@ module UrbanNews
 end
 
 
-# UrbanNews::Scraper.all_issues_list_by_index(self)
-
-

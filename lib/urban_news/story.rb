@@ -30,7 +30,6 @@ module UrbanNews
     end
 
     def self.latest_posts
-      # top_stories_by_index = []
       self.all.each do |story|
        puts "#{story.title}"
        puts "#{story.summary}"
@@ -39,14 +38,6 @@ module UrbanNews
        puts "#{story.content}"
       end
     end
-
-    # def self.top_stories_content
-    #   self.top_stories.with_index do |story, index|
-    #     puts "#{index+1}." 
-    #     puts "#{story.url}"
-    #     puts "#{story.content}"
-    #    end
-    # end
 
   end
 end

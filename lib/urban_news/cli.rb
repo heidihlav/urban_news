@@ -21,7 +21,7 @@ module UrbanNews
       puts " "
       puts "-------------Here are our Latest Posts:-------------"
       puts " "
-      print_title_and_summary  # print_title_and_summary_with_index of each story
+      print_title_and_summary  
       puts " "
       puts "Which story would you like to read? Enter the number of the story."
       input = gets.strip
@@ -29,10 +29,6 @@ module UrbanNews
       when "1".."15"
         story = UrbanNews::Story.find(input.to_i)
         print_url_content_credit(story)
-      # when input.count("a-zA-Z") > 0
-      #   puts " "
-      #   puts "***Try again.***"
-      #   start
       else 
         puts " "
         puts "***Try again!***"
@@ -53,7 +49,6 @@ module UrbanNews
             start
         end 
     end
-      # 4 and 14 15 need work on scraper
 
         def print_title_and_summary
           UrbanNews::Story.all.each.with_index do |story, index|
@@ -77,30 +72,9 @@ module UrbanNews
           puts "#{user_input.content}"
           puts " " 
         end
-        
-        # UrbanNews::Story.all[input-1].each.with_index(input) do |story, index|
-        #   puts "#{index}. #{story.title}"
-        #   puts " "
-        #   puts "#{story.summary}"
-        # end
-
-
-    # def print_chosen_story(user_input)
-    #   UrbanNews::Story.top_stories.map.with_index do |s, index|
-    #       if user_input.to_i == index
-    #         puts "#{index+1}." "#{s.url}"
-    #         puts "-------------"
-    #         puts "#{s.content}"
-    #         puts "-------------"
-    #       end
-    #   end
-    # end
+           
    
-   
-    def self.read_top_stories
-      UrbanNews::Story.top_stories
-    end 
-
+    
   end
 end
 
