@@ -8,10 +8,6 @@ UrbanNews::Scraper.scrape_blog_page
 UrbanNews::Scraper.make_articles
 UrbanNews::Story.latest_posts
 
-# UrbanNews::Scraper.get_top_stories
-# UrbanNews::Scraper.make_top_stories
-# UrbanNews::Story.top_stories_content
-
 
 
 
