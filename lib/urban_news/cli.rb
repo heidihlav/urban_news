@@ -11,6 +11,7 @@ module UrbanNews
       UrbanNews::Scraper.make_stories
       puts " "
       puts "*** Welcome to Urban News! Read stories on urban issues affecting Houston and the U.S. ***"
+      puts "*** Read the title and summary for each story and choose which story you'd like to read. ***"
       puts " "
       start
     end
